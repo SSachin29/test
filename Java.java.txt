@@ -1,2 +1,20 @@
-WebDriver driver=new ChromeDriver();
+
 	
+WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.youtube.com/");
+		driver.findElement(By.xpath("//input[@name=\"search_query\"]")).sendKeys("pahila tu duja tu");
+		driver.findElement(By.xpath("//*[@class=\"ytSearchboxComponentSearchButton\"]")).click();
+        
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.xpath("//*[@id=\"video-title\"]/yt-formatted-string")).click();
+        
+        driver.findElement(By.xpath("//*[@id=\"movie_player\"]/div[29]/div[2]/div[2]/button[9]")).click();
+        
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"skip-button:2\"]/span")));
+        
+        driver.findElement(By.xpath("//*[@id=\"skip-button:2\"]/span")).click();
+        
+      Thread.sleep(30000);
+		driver.quit(); 
