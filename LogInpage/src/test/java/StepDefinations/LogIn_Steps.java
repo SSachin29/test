@@ -24,9 +24,7 @@ public class LogIn_Steps {
 	@Before
 	public void Browser_setup() {
 		System.out.println("---------------We started browser setup------------");
-		WebDriver driver = new ChromeDriver();
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
+		
 	}
 
 	@After
@@ -38,7 +36,9 @@ public class LogIn_Steps {
 	@Given("User on LogIn page of webside")
 	public void user_on_home_page_of_webside() throws InterruptedException {
 		// WebDriver driver= new ChromeDriver();
-
+		WebDriver driver = new ChromeDriver();
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
 		driver.get("https://practicetestautomation.com/practice-test-login/");
 		Thread.sleep(5000);
 
@@ -46,15 +46,15 @@ public class LogIn_Steps {
 
 	@When("user enters Username and Password ")
 	public void user_enters_username_and_password() {
-		LogInpage lp = new LogInpage(driver);
-		lp.Enter_username_password();
+		//LogInpage lp = new LogInpage(driver);
+		//lp.Enter_username_password();
 
 	}
 
 	@When("User clicks on Submit button")
 	public void user_clicks_on_submit_button() {
 
-		lp.click_Submit();
+		//lp.click_Submit();
 
 	}
 
